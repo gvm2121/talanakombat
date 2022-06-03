@@ -56,15 +56,7 @@ ataques_p1 = {
     '':0
 }
 
-def espejo():
-    p1,p2 = p2,p1
-    movimientos_simples_p1,movimientos_simples_p2 = movimientos_simples_p2,movimientos_simples_p1
-    movimientos_complejos_p1,movimientos_complejos_p2 = movimientos_complejos_p2,movimientos_complejos_p1
-    ataques_p1,ataques_p2 = ataques_p2,ataques_p1
-
-
-
-a = json.dumps(j1)
+a = json.dumps(j3)
 b = json.loads(a)
 
 p1 = b['player1']
@@ -80,14 +72,23 @@ energia_p2 = 6
 comb1 = len(p1["movimientos"] + p1["golpes"])
 comb2 = len(p2["movimientos"] + p2["golpes"])
 if comb2 < comb1:
-    espejo()
+    p1,p2 = p2,p1
+    movimientos_simples_p1,movimientos_simples_p2 = movimientos_simples_p2,movimientos_simples_p1
+    movimientos_complejos_p1,movimientos_complejos_p2 = movimientos_complejos_p2,movimientos_complejos_p1
+    ataques_p1,ataques_p2 = ataques_p2,ataques_p1
 
 elif comb2 == comb1:
     if len(p2["movimientos"]) < len(p1["movimientos"]):
-        espejo()
+        p1,p2 = p2,p1
+        movimientos_simples_p1,movimientos_simples_p2 = movimientos_simples_p2,movimientos_simples_p1
+        movimientos_complejos_p1,movimientos_complejos_p2 = movimientos_complejos_p2,movimientos_complejos_p1
+        ataques_p1,ataques_p2 = ataques_p2,ataques_p1
     elif len(p2["movimientos"]) == len(p1["movimientos"]):
         if p2["golpes"] < p1["golpes"]:
-            espejo()
+            p1,p2 = p2,p1
+            movimientos_simples_p1,movimientos_simples_p2 = movimientos_simples_p2,movimientos_simples_p1
+            movimientos_complejos_p1,movimientos_complejos_p2 = movimientos_complejos_p2,movimientos_complejos_p1
+            ataques_p1,ataques_p2 = ataques_p2,ataques_p1
             
 
 ciclos = max(len(p1['movimientos']),len(p2['movimientos']))
