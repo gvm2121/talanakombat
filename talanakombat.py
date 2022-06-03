@@ -55,8 +55,10 @@ ataques_p1 = {
     "K":1,
     '':0
 }
-
-a = json.dumps(j3)
+#
+# ACA COMIENZA EL SCRIPT
+#
+a = json.dumps(j3) #<- ESTA ES LA QUE RECIBE EL JSON, ACÁ COMIENZA
 b = json.loads(a)
 
 p1 = b['player1']
